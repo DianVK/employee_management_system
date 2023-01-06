@@ -22,7 +22,7 @@ address = StringVar()
 entries_frame = Frame(root, bg="#16a085")
 entries_frame.pack(side=TOP, fill=X)
 title = Label(entries_frame, text="Employee Management System", font=("Calibri", 18, "bold"), bg="#16a085", fg="white")
-title.grid(row=0, columnspan=2, padx=10, pady=20, sticky="w")
+title.grid(row=0, columnspan=2, padx=10, pady=10, sticky="w")
 
 lblName = Label(entries_frame, text="Name", font=("Calibri", 16), bg="#16a085", fg="white")
 lblName.grid(row=1, column=0, padx=10, pady=10, sticky="w")
@@ -50,7 +50,7 @@ comboGender = ttk.Combobox(entries_frame, font=("Calibri", 16), width=28, textva
 comboGender['values'] = ("Male", "Female")
 comboGender.grid(row=3, column=1, padx=10, sticky="w")
 
-lblContact = Label(entries_frame, text="Contact No", font=("Calibri", 16), bg="#16a085", fg="white")
+lblContact = Label(entries_frame, text="Contact", font=("Calibri", 16), bg="#16a085", fg="white")
 lblContact.grid(row=3, column=2, padx=10, pady=10, sticky="w")
 txtContact = Entry(entries_frame, textvariable=contact, font=("Calibri", 16), width=30)
 txtContact.grid(row=3, column=3, padx=10, sticky="w")
@@ -73,7 +73,7 @@ def getData(event):
     email.set(row[4])
     gender.set(row[5])
     contact.set(row[6])
-    address.set(row[6])
+    address.set(row[7])
 
 
 def display_all():
@@ -136,7 +136,7 @@ btnClear = Button(btn_frame, command=clear_all, text="Clear Details", width=15, 
 
 # Table Frame
 tree_frame = Frame(root, bg="#ecf0f1")
-tree_frame.place(x=0, y=340, width=1980, height=520)
+tree_frame.place(x=0, y=320, width=1980, height=520)
 style = ttk.Style()
 style.configure("mystyle.Treeview", font=('Calibri', 18),
                 rowheight=50)  # Modify the font of the body
