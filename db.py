@@ -46,4 +46,3 @@ class Database:
 
 
 o = Database("Employee.db")
-o.update("2","Ivan Asenov","35","12-12-2025","ivanasenov@abv.bg","Male","0897720760","Test Address")
