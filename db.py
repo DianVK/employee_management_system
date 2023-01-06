@@ -26,7 +26,24 @@ class Database:
         self.cur.execute(sql,(name, age, doj, email,gender,contact,address))
         self.con.commit()
 
+    # Fetch all Data from DB
+    def fetch(self):
+        self.cur.execute("SELECT * from employees")
+        rows = self.cur.fetchall()
+        #print(rows)
+        return rows
+
+    # Delete a Record in DB
+    def remove(self,id):
+        self.cur.execute("delete from employees where id=?",(id,))
+        self.con.commit()
+
+    # Update a Record in DB
+    def update(self,id,name, age, doj, email,gender,contact,address):
+        self.cur.execute("update employees set name=?,age=?,doj=?,email=?,gender=?,contact=?,address=? where id=?",
+                         (name, age, doj, email,gender,contact,address,id))
+        self.con.commit()
+
 
 o = Database("Employee.db")
-o.insert("Peter","25","05-10-2022","peter_grigorov@gmail.com","Male","+359892407444","Oborishte 8, Plovdiv")
-o.insert("John","27","08-4-2023","this_is_test_email@gmail.com","Male","+359883457841","Mariya Luiza 103, Sofia")
+o.update("2","Ivan Asenov","35","12-12-2025","ivanasenov@abv.bg","Male","0897720760","Test Address")
