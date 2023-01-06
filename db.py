@@ -1,5 +1,6 @@
 import sqlite3
 
+
 class Database:
     def __init__(self, db):
         self.con = sqlite3.connect(db)
@@ -38,8 +39,8 @@ class Database:
         self.con.commit()
 
     # Update a Record in DB
-    def update(self, id, name, age, job, email, gender, contact, address):
+    def update(self, id, name, age, doj, email, gender, contact, address):
         self.cur.execute(
             "update employees set name=?, age=?, doj=?, email=?, gender=?, contact=?, address=? where id=?",
-            (name, age, job, email, gender, contact, address, id))
+            (name, age, doj, email, gender, contact, address, id))
         self.con.commit()
